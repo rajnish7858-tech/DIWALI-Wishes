@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Audio Player</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f6d7a8;
+      font-family: Arial, sans-serif;
+    }
+
+    .player {
+      display: flex;
+      align-items: center;
+      background: #f5c98c;
+      padding: 10px 20px;
+      border-radius: 50px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .icon {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+
+    .title {
+      font-weight: bold;
+      margin-right: 15px;
+    }
+
+    button {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      margin: 0 10px;
+    }
+
+    input[type="range"] {
+      width: 120px;
+      margin: 0 10px;
+    }
+
+    .time {
+      font-size: 14px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="player">
+    <div class="icon">🎵</div>
+    <div class="title">Soulful Music</div>
+    <button id="play">▶</button>
+    <span class="time" id="current">0:00</span>
+    <input type="range" id="progress" value="0" min="0" step="1">
+    <span class="time" id="duration">0:00</span>
+    <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+  </div>
+
+  <audio id="audio" src="assets/audio/a.mp3"></audio>
+
+  <script>
+    const audio = document.getElementById("audio");
+    const playBtn = document.getElementById("play");
+    const progress = document.getElementById("progress");
+    const currentTimeEl = document.getElementById("current");
+    const durationEl = document.getElementById("duration");
+    const volume = document.getElementById("volume");
+
+    playBtn.addEventListener("click", () => {
+      if(audio.paused){
+        audio.play();
+        playBtn.textContent = "⏸";
+      } else {
+        audio.pause();
+        playBtn.textContent = "▶";
+      }
+    });
+
+    audio.addEventListener("loadedmetadata", () => {
+      progress.max = audio.duration;
+      durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      progress.value = audio.currentTime;
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    progress.addEventListener("input", () => {
+      audio.currentTime = progress.value;
+    });
+
+    volume.addEventListener("input", () => {
+      audio.volume = volume.value;
+    });
+
+    function formatTime(time){
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+      return `${minutes}:${seconds}`;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Salsa", cursive;
+  color: #1e1e1e;
+}
+
+main {
+  max-width: 1440px;
+  margin: 0 auto;
+  background-color: #f99501;
+}
+
+.intro {
+  background-image: url("./assets/image/intro_background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.intro .diwali-toran {
+  padding-left: 10px;
+  width: 250px;
+}
+
+.diwali-toran img {
+  width: 100%;
+}
+
+/* Updated for .intro-message */
+.intro-message p {
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 1.3;
+  margin-top: 24px;
+  margin-left: 158px;
+}
+
+.intro .audio-player {
+  display: flex;
+  background-color: #f1f3f4;
+  gap: 10px;
+  align-items: center;
+  max-width: 520px;
+  margin-top: 20px;
+  margin-left: 158px;
+  border-radius: 40px;
+  padding: 0 18px;
+}
+
+.intro .diwali-deepak {
+  width: 100%;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.page-2,
+.page-3,
+.page-4,
+footer {
+  padding: 20px 40px;
+}
+
+.page-2 img,
+.page-4 img {
+  display: block;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+img[alt="Lakshmi Maa and Ganesh Ji"] {
+  width: 100%;
+  margin-block: 40px;
+  margin-inline: auto;
+}
+
+.page-2 p {
+  font-family: "Style Script", cursive;
+  font-size: 3.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-3 .wishes {
+  font-family: "Salsa", cursive;
+  background-color: #fff;
+  max-width: 600px;
+  padding: 2rem 4rem;
+  font-size: 2rem;
+  border-radius: 18px;
+}
+
+.wishes p {
+  margin: 2rem 0;
+}
+
+.page-3 img {
+  max-width: 260px;
+  margin-left: -110px;
+}
+
+.god-pic-page-4 {
+  width: 90%;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 18px;
+  margin-inline: auto;
+}
+
+.god-pic-page-4 img {
+  max-width: 50%;
+}
+
+.thank-you-text {
+  margin-left: 65px;
+}
+
+.thank-you-text p {
+  margin-block: 20px;
+  color: #000;
+}
+
+.thank-you-text p:first-child {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.thank-you-text p:last-child {
+  font-family: "Style Script", cursive;
+  font-size: 3.5rem;
+}
+
+footer {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .diwali-deepak {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .diwali-deepak img {
+    width: 40%;
+  }
+}
+
+@media (max-width: 425px) {
+  .intro-message p {
+    font-size: 1.75rem;
+    margin: 18.5px;
+  }
+
+  .intro .audio-player {
+    gap: 0px;
+    max-width: 350px;
+    margin-inline: auto;
+    padding: 0 10px;
+  }
+
+  .audio-player > img + img {
+    display: none;
+  }
+
+  .diwali-deepak img + img {
+    display: none;
+  }
+
+  .page-2,
+  .page-3,
+  .page-4,
+  footer {
+    padding: 20px 18.5px;
+  }
+
+  .page-2 img,
+  .page-4 img {
+    display: block;
+  }
+
+  img[alt="Lakshmi Maa and Ganesh Ji"] {
+    display: inline;
+    width: 100%;
+    margin-block: 40px;
+    margin-inline: 0px;
+  }
+
+  .page-2 p {
+    font-size: 2.5rem;
+  }
+
+  .page-3 {
+    display: flex;
+    justify-content: unset;
+  }
+
+  .page-3 .wishes {
+    max-width: 300px;
+    padding: 20px 10px;
+    font-size: 1rem;
+  }
+
+  .wishes p {
+    margin-block: 1rem;
+    padding-right: 30px;
+  }
+
+  .page-3 img {
+    max-width: 150px;
+    margin-left: -50px;
+  }
+
+  .god-pic-page-4 {
+    width: 100%;
+    padding: 10px;
+  }
+
+
+  .thank-you-text {
+    margin-left: 0;
+  }
+
+  .thank-you-text p {
+    margin-block: 20px;
+    color: #000;
+  }
+
+  .thank-you-text p:first-child {
+    font-size: 16px;
+  }
+
+  .thank-you-text p:last-child {
+    font-size: 2rem;
+  }
+
+  footer {
+    text-align: right;
+  }
+}
